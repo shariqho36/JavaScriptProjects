@@ -6,9 +6,9 @@ name: Deploy to surge
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -33,8 +33,8 @@ jobs:
           
       # Setup to Install Surge
       - name: Installing Surge
-        run: npm install--global surge
+        run: npm install --global surge
         
       # Deploy App to Surge
       - name: Deloying Project to Surge
-        run: surge ./ shariqho36.surge.sh --${{ secrets.SURGE_TOKEN }}
+        run: surge ./ shariqho36.surge.sh --token ${{ secrets.SURGE_TOKEN }}
